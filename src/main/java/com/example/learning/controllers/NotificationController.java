@@ -1,0 +1,28 @@
+package com.example.learning.controllers;
+
+import com.example.learning.services.INotificationService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/push")
+@RequiredArgsConstructor
+public class NotificationController {
+
+    private INotificationService notificationService;
+
+
+    @PostMapping
+    private ResponseEntity<?> push(
+            @RequestParam String deviceToken,
+            @RequestParam String title,
+            @RequestParam String body) {
+        notificationService.sendNotification(deviceToken, title, body);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+}
