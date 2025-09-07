@@ -20,10 +20,9 @@ public class NotificationController {
 
     @PostMapping
     private ResponseEntity<?> push(
-            @RequestParam String deviceToken,
-            @RequestParam String title,
-            @RequestParam String body) {
-        notificationService.sendNotification(deviceToken, title, body);
+            @RequestParam String fcmToken,
+            @RequestParam String templateName) {
+        notificationService.sendNotification(fcmToken, templateName);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

@@ -1,0 +1,15 @@
+{
+  "token": "",
+  "settingType": "COMMENT",
+  "data": {
+    "sender_avatar": "${SENDER_UUID}",
+    "web_link": "${FE_URL_LINK}",
+    "mobile_screen": "${MOBILE_ACTION}"
+  },
+  "notification": {
+    "title": "${TITLE_DATA}",
+    "body": "đã bình luận bài viết của bạn",
+    "image": "sctr-icon-solid-layout-alt-03",
+    "color": "#349BEB"
+  }
+}
